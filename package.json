@@ -1,0 +1,37 @@
+{
+	"name": "ts-lang-test",
+	"version": "0.0.0",
+	"description": "Testing different text chunking approaches",
+	"main": "index.js",
+	"type": "commonjs",
+	"scripts": {
+		"build": "tsc",
+		"start": "pnpm exec ts-node index.ts",
+		"test:chunkers": "pnpm exec ts-node examples/compareChunkers.ts",
+		"test:specific": "ts-node --transpile-only examples/runSpecificChunker.ts",
+		"generate:data": "pnpm exec ts-node examples/data/generateTestData.ts",
+		"download:testdata": "pnpm exec ts-node scripts/downloadTestData.ts",
+		"evaluate:chunks": "pnpm exec ts-node index.ts",
+		"evaluate:methods": "pnpm exec ts-node examples/evaluateChunkers.ts"
+	},
+	"dependencies": {
+		"@google/generative-ai": "0.1.1",
+		"@orama/chunker": "0.0.3",
+		"@orama/orama": "^3.0.4",
+		"@types/natural": "5.1.5",
+		"dotenv": "^16.4.7",
+		"gpt-tokenizer": "2.8.1",
+		"langchain": "0.3.7",
+		"llamaindex": "0.8.28",
+		"natural": "8.0.1",
+		"neo4j-driver": "5.27.0",
+		"openai": "4.76.3",
+		"stopword": "3.1.3"
+	},
+	"devDependencies": {
+		"@types/node": "^22.10.2",
+		"ts-node": "^10.9.2",
+		"tsconfig-paths": "^4.2.0",
+		"typescript": "^5.7.2"
+	}
+}
