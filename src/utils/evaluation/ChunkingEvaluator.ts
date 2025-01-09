@@ -16,16 +16,18 @@ import {
 import fs from 'fs'
 import path from 'path'
 
+// TODO: Circle back these may be better instead reinventing the wheel
+// These have default prompts and other things that we can use potentially
 import { 
     // DatasetGenerator,
-    FaithfulnessEvaluator,
-    RelevancyEvaluator 
+    // FaithfulnessEvaluator,
+    // RelevancyEvaluator 
 } from 'llamaindex'
 
 // Import actual implementations, not just types
 import { DatasetGenerator } from './DatasetGenerator'
-// import { FaithfulnessEvaluator } from './FaithfulnessEvaluator'
-// import { RelevancyEvaluator } from './RelevancyEvaluator'
+import { FaithfulnessEvaluator } from './FaithfulnessEvaluator'
+import { RelevancyEvaluator } from './RelevancyEvaluator'
 
 export interface QueryResponse {
   response: string

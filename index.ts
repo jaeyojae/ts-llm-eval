@@ -1,3 +1,4 @@
+import 'dotenv/config'
 import { Neo4jVectorStore } from './vectorstore'
 import neo4j from 'neo4j-driver'
 import { OpenAI } from 'openai'
@@ -14,7 +15,8 @@ async function main() {
     dataDirectory: './data/',
     numQuestions: 20,
     numPages: 20,
-    chunkSizes: [128, 256, 512, 1024, 2048],
+    // chunkSizes: [128, 256, 512, 1024, 2048],
+    chunkSizes: [1024, 2048],
     evaluationModel: 'gpt-4',
     queryModel: 'gpt-3.5-turbo'
   })

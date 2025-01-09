@@ -73,19 +73,20 @@ async function compareChunkers() {
   // Load test documents
   const testFiles = {
     small: fs.readFileSync(path.join(__dirname, 'data/small.txt'), 'utf-8'),
-    medium: fs.readFileSync(path.join(__dirname, 'data/medium.txt'), 'utf-8'),
-    large: fs.readFileSync(path.join(__dirname, 'data/large.txt'), 'utf-8'),
+    // medium: fs.readFileSync(path.join(__dirname, 'data/medium.txt'), 'utf-8'),
+    // large: fs.readFileSync(path.join(__dirname, 'data/large.txt'), 'utf-8'),
   }
 
   // Run comparisons
   for (const [size, content] of Object.entries(testFiles)) {
     console.log(`\nTesting ${size} document:`)
     console.log('-'.repeat(50))
-    
+    console.log(chunkers);
     const results = await Promise.all(
       chunkers.map(async chunker => {
         const result = await chunker.process(content)
         const analysis: ChunkerTestResult = {
+          // chunker: chunker.options.method ? chunker.name + ' - ' + chunker.options.method : chunker.name, 
           chunker: chunker.name,
           chunkCount: result.chunks.length,
           chunksPerSecond: result.chunks.length / (result.performance.totalTime / 1000),
